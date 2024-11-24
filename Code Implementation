@@ -1,0 +1,36 @@
+#include "lcd.h"
+#include "sensors.h"
+#include "sd_card.h"
+#include "utils.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // Initialize peripherals
+    lcd_init();
+    sensors_init();
+    sd_card_init();
+
+    // Main loop
+    while (1) {
+        float temperature = get_temperature();
+        float humidity = get_humidity();
+        float pressure = get_pressure();
+
+        // Display data on LCD
+        lcd_clear();
+        lcd_printf("Temp: %.2f C", temperature);
+        lcd_printf("Hum: %.2f %%", humidity);
+        lcd_printf("Pres: %.2f hPa", pressure);
+
+        // Log data to SD card
+        char log_entry[64];
+        sprintf(log_entry, "T:%.2f,H:%.2f,P:%.2f\n", temperature, humidity, pressure);
+        sd_card_write(log_entry);
+
+        // Delay for 2 seconds
+        delay_ms(2000);
+    }
+
+    return 0;
+}
