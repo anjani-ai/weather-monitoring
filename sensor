@@ -1,0 +1,16 @@
+#include "sensors.h"
+
+float get_temperature() {
+    // Fetch data from the temperature sensor
+    return 25.3;  // Dummy value for testing
+}
+
+float get_humidity() {
+    // Fetch data from the humidity sensor
+    return 60.5;  // Dummy value for testing
+}
+
+float get_pressure() {
+    // Fetch data from the pressure sensor
+    return 1013.25;  // Dummy value for testing
+}
