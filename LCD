@@ -1,0 +1,20 @@
+#include "lcd.h"
+#include <stdio.h>
+
+void lcd_init() {
+    // Initialize LCD pins
+    // Send initialization commands
+}
+
+void lcd_clear() {
+    // Send clear command
+}
+
+void lcd_printf(const char *format, ...) {
+    char buffer[32];
+    va_list args;
+    va_start(args, format);
+    vsprintf(buffer, format, args);
+    va_end(args;
+    // Display formatted text on LCD
+}
