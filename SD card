@@ -1,0 +1,10 @@
+#include "sd_card.h"
+#include <stdio.h>
+
+void sd_card_init() {
+    // Initialize SPI and SD card
+}
+
+void sd_card_write(const char *data) {
+    // Write data to the SD card
+}
